@@ -1,0 +1,19 @@
+Analysis
+
+1) Based on the instructional videos, what are the key steps for managing files between Google Colab and GitHub?
+- "After saving to GitHub, visit your repository link to ensure the file is present and the folder structure is correct"
+"Always use the HWx folder naming convention so that I can easily locate and pull your work for grading"
+"You can hover over files and click the + (plus) icon to "stage" them, then type a commit message and click Commit to save your progress"
+Then click Sync Changes
+Always use the HWx folder naming convention
+
+2) Did all Module 0 notebooks execute successfully in Colab on the first try, or did you need to adjust any syntax or dependencies?
+- All of the Module 0 notebooks executed when changing to the CPU
+
+3) Explain how you created your repository and organized your files (whether using VS Code or the GitHub web interface).
+- Since my VScode is not currently working with GitHub at the moment, I created a repository in the web verison of GitHub and downloaded that to my VScode.
+Later, I will make code files in VScode first, and upload them manually to GitHub, since the commit feature is not functioning, despite having set up Git.
+
+4) Why is establishing a strong command of basic Python data structures and syntax critical before moving on to core machine learning algorithms?
+- The core data structures of Python are the basis of the data and code that many of the libraries we use will rely upon. Machine Learning is data
+dependent, so having mastery over these basics will ensure our models function smoothly.
