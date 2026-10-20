@@ -1,0 +1,93 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Penguinboy1990/Machine-Learning/blob/main/HW4/AnalysisHW4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "HW4 Analysis"
+      ],
+      "metadata": {
+        "id": "oh1bteXjIinX"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1. How do the feature types in the UCI Heart Disease dataset (combining continuous physiological telemetry like chol and thalach with categorical/ordinal indicators like cp and thal) differ from previous datasets, and why is proper scaling critical for Support Vector Machines compared to Decision Trees?\n",
+        "\n",
+        "  This dataset is different because it includes continuous variables that should be treated as categorical and need to be properly encoded to train as such. Proper scaling is important for SVMs over DTs because SVMs rely on distance based calculations and margin optimizations while DTs make decisions through rank-based threshold splits and are therefore not affected by feature magnitudes."
+      ],
+      "metadata": {
+        "id": "Fnu8xYDvv4dQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "2. Explain how hidden missing values (such as ? symbols) impact raw medical datasets, and justify your choice of imputation strategies for skewed numerical vitals versus categorical diagnostic fields.\n",
+        "\n",
+        "  I used a median imputation strategy for the numeric variables and mode imputation strategy for categorical variables. I used median because medical data is often skewed by clinical outliers. This makes the median more accurate than the mean since the mean would be affected by the skew. For the categorical variables, I used mode or most_frequent imputation. The categories cannot be averaged numerically because categorical data doesn't work that way, even when represented by numbers. This preserves the dominant clinical classification category without introducing invalid values."
+      ],
+      "metadata": {
+        "id": "2QbzwMQwyql-"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "3. Contrast how a Support Vector Classifier (using an RBF kernel) constructs decision boundaries versus how a Decision Tree recursively partitions feature space. What are the interpretability tradeoffs between the two models?\n",
+        "\n",
+        "  Decision trees separate the feature space using a set of rules that classifies the data using rectangular splits. The SVC with an RBF kernel classifies the data using a hyperplane which splits the data into distinct classes. The hyperplane maps to the original feature space as a smooth boundary. The rules that the decision tree follows are clear and interpretable. Using our data, cardiologists can look at specific clinical thresholds like resting blood pressure or serum cholesterol. On the other hand, SVC is better for more complex, non-linear data that is a black box of mathematically weighted classifications."
+      ],
+      "metadata": {
+        "id": "0FHar_OP06mA"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "4. Discuss how tuning hyperparameters such as regularization parameter C and kernel coefficient gamma in an SVC impacts the trade-off between bias, variance, and model generalization on unseen medical test data.\n",
+        "\n",
+        "  Tuning hyperparameters balances between bias and variance by controlling how strongly the model fits. High C penalizes misclassifications whlie high gamma restricts each support vector's radius of influence, which lowers bias but increases variance. This leads to jagged decision boundaries that can overfit on the training data then fail on new external patient data because it follows the training data too closely to accurately predict unseen data. Low gamma values will increase bias and underfitting, which does not generalize well."
+      ],
+      "metadata": {
+        "id": "cYYS_XyS7hly"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "5. Inspecting your Decision Tree feature importances or model coefficients, which clinical indicators (e.g., maximum heart rate, chest pain type, ST depression) exhibit the strongest predictive power for heart disease, and what preventative screening insights do these results provide for cardiologists?\n",
+        "\n",
+        "  My Decision Tree suggests that chest pain presentation (cp_asymptomatic), exercise-induced ST depression (oldpeak), (thai_normal), (restecg_st-t abnormality) and (chai) have the strongest predicting power for detecting heart disease. These results suggests that cardiologists should screen for these atypical presentations which would otherwise be missed by most symptom-based risk models."
+      ],
+      "metadata": {
+        "id": "B-P4YUj0IqpG"
+      }
+    }
+  ]
+}
